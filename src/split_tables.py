@@ -1,6 +1,7 @@
 import mysql.connector 
 import pandas as pd;
 
+# Make the connection with MySQL
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
@@ -8,8 +9,10 @@ mydb = mysql.connector.connect(
   database="hospital"
 )
 
+# Create a cursor object
 cur = mydb.cursor()
 
+# Create a dataframe from the text file i.e. info from the Patient data
 df = pd.read_csv("data/data.txt",delimiter="|")
 
 #Segmenting the Patient table into multiple tables country wise
@@ -30,7 +33,7 @@ for i, row in df.iterrows():
             
     except:
         
-        print("Duplicate entry with primary key")
+        print("Already exists.")
 
 mydb.commit()
 mydb.close()
