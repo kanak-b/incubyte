@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS patient_data (
   
 );
 
+
 -- Loading the data from the text file into our Patients table
 LOAD DATA INFILE 'C:/Users/Kanak/Desktop/data.txt' 
 INTO TABLE patient_data
